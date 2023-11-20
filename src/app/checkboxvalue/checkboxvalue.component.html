@@ -1,0 +1,17 @@
+<h2 class="green"><b>{{heading }}</b></h2>
+<button (click)="getSel()">Click.!</button>
+<div style="color:red">
+  all
+  <p *ngFor="let d of all">
+    <input type="checkbox" [checked]="d.checked" (change)="d.checked = !d.checked"> {{ d.name }}
+  </p>
+</div>
+<button (click)="add()">add.!</button>
+
+<div style="color:blue;">
+  selected
+  <p *ngFor="let d of selected">
+    {{ d.name }}
+  </p>
+</div>
+<hr>

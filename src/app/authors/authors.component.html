@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>ngFor conditions !</h2>
+  <div (click)="divClicked()">
+    <h1>{{ getTitles1() }}</h1>
+    <h2>Authors component</h2>
+    <h2>{{ title_2 }}</h2>
+    <img src="{{ imageUrl }}" /> <br/> <br/>
+    <button (click)="onSave($event)" class="btn btn-primary" [style.color]="isActive ? 'black' : 'blue'">Visit</button><br/> <br/>
+    <h2>{{ courses.length }} Courses</h2>
+      <ul *ngFor="let course of courses"> 
+        <li [attr.colSpan]="colSpan"> {{ course }} </li>
+      </ul>
+  </div>
+  <div>
+    <!-- <input (keyup.enter)="onKeyUp()" /> -->
+    <!-- <input #email (keyup.enter)="onKeyUp(email.value)" /> -->
+     <!-- <input ngModel="email" (keyup.enter)="onKeyUp()"/>  -->
+     <input NgModel="email" (keyup.enter)="onKeyUp()"/> 
+    <!-- <img src="{{ showVar ? 'assets/images/brightness_high.svg' : 'assets/brightness_high_fill.svg' }}"  (click)="toggleChild()"/>
+     <my-child [showMePartially]="showVar"></my-child>  -->
+     <br/> <br/>
+       <!-- <img src="{{ showvar }}" />  -->
+       <h1> Example of Toggle a Div on Click on a Button using Angular </h1>  
+<button (click)=toggleDisplayDivIf() >Toggle display Div If</button>  
+<div *ngIf="!isShowDivIf"> This Div If is from Javatpoint.com.</div>  
+  </div>
+</div>
+<hr>
+
+

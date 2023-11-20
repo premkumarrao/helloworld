@@ -1,0 +1,12 @@
+<app-img-filter #chain [all]="prodCount" [inStock]="inStockCount" [outOfStock]="outOfStockCount"></app-img-filter>
+<button (click)="chain.logFoo()">
+  Click me
+</button>
+<p>To get data value from child using template variable {{chain.kum}}</p>
+
+<div *ngFor="let prod of prem1">
+  <app-users [courses2]="prod"
+    *ngIf="selectedFilterRadioButton === 'all' || prod.is_in_inventory.toString() === selectedFilterRadioButton"></app-users>
+  <!-- <app-users [courses2]="prod" *ngIf=" prod.name.toLowerCase().includes(searchTxt)"></app-users> -->
+
+</div>

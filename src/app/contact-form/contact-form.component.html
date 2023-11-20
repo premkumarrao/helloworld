@@ -1,0 +1,115 @@
+<h2 class="green"><b>{{title }}</b></h2>
+<p>{{dummyText | titleCase: 100}}</p>
+<section>
+  <div>
+    <label>Title </label>
+    <input type="text" [(ngModel)]="postTitle" />
+  </div>
+  <div>
+    <label>Email </label>
+    <input type="email" [(ngModel)]="postEmail" />
+  </div>
+  <div>
+    <textarea type="text" [(ngModel)]="postAddress" rows="4" cols="50"></textarea>
+  </div>
+  <!-- <div>
+    <input type="url" placeholder="Past your image url" [(ngModel)]="imgLink" />
+  </div> -->
+  <!-- <div>
+    <input type="url" placeholder="Past your url" [(ngModel)]="websiteUrl" />
+  </div> -->
+  <div>
+    <button [ngClass]="{'bg-btn-col': postAddress}" (click)="formSave()" [disabled]="!postAddress">Save</button>
+  </div>
+  <!-- <div>
+    <input type="checkbox" [(ngModel)]="addBackgroud" />Add background
+  </div> -->
+
+  <h2>Contact Forms details:</h2>
+  <!-- <form name="myForm" #myForm="ngForm">
+    <p><b>Image:</b><img [src]="imgLink" width="50px" style="margin-top:20px" />
+    </p>
+    <table>
+      <tbody>
+        <tr>
+          <th style="width: 20%;">#</th>
+          <th style="width: 20%;">Post Title</th>
+          <th style="width: 20%;">Email</th>
+          <th style="width: 20%;">Address</th>
+          <th style="width: 20%;">Action</th>
+        </tr>
+        <tr *ngFor="let course of courses; let i = index;">
+          <td>{{i +1}}</td>
+          <td>{{postTitle}}</td>
+          <td>{{postEmail}}</td>
+          <td>{{postAddress}}</td>
+          <td><button (click)="delCourses(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><b>URL Details:</b> <a [href]=" websiteUrl" target="_blank">{{websiteUrl}}</a></p>
+    <button>Submit</button>
+  </form> -->
+  <form name="myForm" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <div class="row">
+      <div class="row col-md-5">
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="firstname">Last Name</label>
+          <input type="text" id="lastname" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" ngModel class="form-control">
+        </div>
+      </div>
+      <button ngModel>Submit</button>
+    </div>
+  </form>
+  <hr>
+  <div class=" form-group">
+    <label for="firstName">First Name</label>
+    <input ngModel name="firstName" #firstName (change)="log(firstName)" id="firstName" type="text"
+      class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="Comment">Comment</label>
+    <input id="comment" cols="30" rows="10" class="form-control" />
+  </div>
+  <button class="btn btn-primary">Submit</button>
+</section>
+<br>
+<div>
+  <h3>Created data service as a common service and used in contact-form component as a constructor method</h3>
+  {{dataService.count}} <br>
+  <button (click)="decrementCount()">Decrement</button>
+</div>
+<hr>
+<div>
+  <h3>Pipe symbol methods</h3>
+  <h2>{{number | number}}</h2>
+  <h2>{{int | number:'1.0-0'}}</h2>
+  <p>Today is {{today | date}}</p>
+  <p>Or if you prefer, {{today | date:'fullDate'}}</p>
+  <p>The time is {{today | date:'h:mm a z'}}</p>
+</div>
+<hr>
+<div>
+  <h3>Data listed by using Service method</h3>
+  <button (click)="newData()">Add new data</button>
+  <ul>
+    <li *ngFor="let post of posts">
+      {{post.postTitle}}
+    </li>
+  </ul>
+  <ol>
+    <li *ngFor="let post1new of posts1">
+      <div (click)="handleThumbnailClick(post1new.name)">
+        {{post1new.name}}, {{post1new.title}}
+      </div>
+    </li>
+  </ol>
+</div>

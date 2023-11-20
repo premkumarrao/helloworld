@@ -1,0 +1,26 @@
+<div>
+  <h1>@Input: Custom Property Binding (parent component) to (child component) </h1>
+  <div style="margin-top:10px">
+    Event: {{event.name}}
+  </div>
+  <div>
+    Date: {{event.date}}
+  </div>
+  <div>
+    <!-- <div *ngFor="let post of posts">
+      <img [src]="post.image" />
+      <p>User name: {{post.name}}</p>
+    </div> -->
+    <app-search (onSearchText)="setSearchText($event)"></app-search>
+
+    <!-- *ngIf="prem === 'all' || prod.is_in_inventory.toString() === prem" -->
+    <app-userlist [searchTxt]="searchTxt"></app-userlist>
+
+  </div>
+  <div>
+    Time: {{event.time}}
+  </div>
+  <div>
+    Address: <app-parent [address]="event.location"></app-parent>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<p>Parent Component</p>
+{{calculate()}}
+<div>
+  <img [src]="product.img" />
+  <p>Name: {{product.name}}</p>
+  <p>Price: {{"$" + product.price}}</p>
+  <p>Color: {{product.color}}</p>
+  <p>Discounted Price: {{getDiscountedPrice().toFixed(2)}}</p>
+  <p>InStocks: {{product.inStocks > 0 ? 'Only ' + product.inStocks + ' items available' : 'Stocks not available'}}</p>
+  <button [disabled]="product.inStocks == 0">Buy Now</button>
+  <br>
+  <input [value]="name" [attr.aria-hidden]="true" [(ngModel)]="name" />
+  {{name}}
+  <br>
+  <button (click)="decrementValue()">-</button>
+  {{one}}
+  <button (click)="incrementValue()">+</button>
+</div>
+<hr>
+<app-childcomp1 (messageEvent)="receiveMessage($event)"></app-childcomp1>
+<p>{{message}}</p>
+<input type="text" (keyup.enter)="onKeyup($event)" />
+<div>
+  <h2>*ngFor Directtive loops with ng-template for Change detection Method</h2>
+  <p>Created a index variable from the html template itself</p>
+  <button (click)="addNew()">Add new data</button>
+  <!-- <br>
+  <button [disabled]="!(inStock > 0)">Add new data</button> -->
+  <div *ngIf="courses.length > 0; then listData else noData"> </div>
+  <ng-template #listData>
+    <ul>
+      <li *ngFor="let course of courses; let i = index">{{course.name}}
+        <button (click)="delCourses(i)">Delete</button>
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template #noData>
+    <p>No data in this lists</p>
+  </ng-template>
+
+</div>
+<div>
+  <h2>*ngSwitchCase Directive</h2>
+  <p>If anything required more *ngIf conditions for single value, we can use *ngSwitchCase instead </p>
+  <div>
+    <button (click)="onClick('step1')">Step 1</button>
+    <button (click)="onClick('step2')">Step 2</button>
+    <button (click)="onClick('step3')">Step 3</button>
+  </div>
+  <div [ngSwitch]="stepForm">
+    <div *ngSwitchCase="'step1'">Step 1 Form</div>
+    <div *ngSwitchCase="'step2'">Step 2 Form</div>
+    <div *ngSwitchCase="'step3'">Step 3 Form</div>
+    <div *ngSwitchDefault>Something else... </div>
+  </div>
+</div>
+
+<div>
+  <h2>*ngStyle Directive</h2>
+  <p>If any multiple styles required, we can use [ngStyle] to achieve </p>
+  <div>
+    <h2 [ngStyle]="{
+      color: isActive ? 'red' : 'blue',
+      textTransform: isActive ? 'uppercase' : 'lowercase'
+    }">
+      Angular Udemy Classes
+    </h2>
+  </div>
+</div>
+
+<div>
+  <h2>*ngClass Directive</h2>
+  <p>If any multiple classes required, we can use [ngClass] to achieve </p>
+  <div>
+    <h2 [ngClass]="{
+      'main': isActive,
+      'text-weight': isActive
+    }">
+      Angular Udemy Classes
+    </h2>
+  </div>
+</div>

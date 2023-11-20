@@ -1,0 +1,28 @@
+<h2 class="green"><b>{{heading }}</b></h2>
+<div class="zippy">
+  <div class="zippy-heading" [class.expanded]="isExpanded" (click)="toggle()">
+    {{ faqTitle1 }}
+    <!-- <span class="glyphicon"
+      [ngClass]="{
+        'glyphicon-chevron-up': isExpanded,
+        'glyphicon-chevron-down': !isExpanded
+      }">
+    </span> -->
+  </div>
+  <div *ngIf="isExpanded" class="zippy-boddy">
+    <p>Shipping details content</p>
+  </div>
+  <div class="zippy-heading" [class.expanded]="isExpanded" (click)="toggle()">
+    {{ faqTitle2 }}
+    <!-- <span class="glyphicon"
+      [ngClass]="{
+        'glyphicon-chevron-up': isExpanded,
+        'glyphicon-chevron-down': !isExpanded
+      }">
+    </span> -->
+  </div>
+  <div *ngIf="isExpanded" class="zippy-boddy">
+    <p>Shipping details content</p>
+  </div>
+</div>
+<hr>

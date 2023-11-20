@@ -1,0 +1,26 @@
+<div class="container">
+  <h2><b>Component name:</b> drpdwntab</h2>
+  <h2 class="green"><b>{{heading | uppercase}}</b></h2>
+  <div>
+    <select [(ngModel)]="selected" (ngModelChange)="onSelect(selected)">
+      <option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+  <p></p>
+  <div>Selected Option</div>
+  <div>{{ selected }}</div>
+
+
+  <table>
+    <th>Name</th>
+    <th>Value</th>
+    <th>id</th>
+    <tr *ngFor="let x of selectedData">
+      <td>{{x?.name}}</td>
+      <td>{{x?.value}}</td>
+      <td>{{x?.id}}</td>
+    </tr>
+  </table>
+  <hr>
